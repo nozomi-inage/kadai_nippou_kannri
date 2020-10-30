@@ -16,6 +16,7 @@ import models.Employee;
 import models.validators.EmployeeValidator;
 import utils.DBUtil;
 import utils.EncryptUtil;
+
 /**
  * Servlet implementation class EmployeesCreateServlet
  */
@@ -34,6 +35,7 @@ public class EmployeesCreateServlet extends HttpServlet {
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String _token = (String)request.getParameter("_token");
         if(_token != null && _token.equals(request.getSession().getId())) {
@@ -77,4 +79,5 @@ public class EmployeesCreateServlet extends HttpServlet {
             }
         }
     }
-    }
+
+}
