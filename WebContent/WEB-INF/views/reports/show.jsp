@@ -5,7 +5,7 @@
     <c:param name="content">
         <c:choose>
             <c:when test="${report != null}">
-                <h2>日報　詳細ページ</h2>
+                <h2>日報詳細ページ</h2>
 
                 <table>
                     <tbody>
@@ -39,6 +39,11 @@
                 </table>
 
                 <c:if test="${sessionScope.login_employee.id == report.employee.id}">
+                <form method="POST" action="<c:url value='/login' />">
+                 <input type="hidden" name="_token" value="${_token}" />
+                 <input type="hidden" name="likes" value="${likes}" />
+                 <button type="submit">いいね！</button>
+                </form>
                     <p><a href="<c:url value="/reports/edit?id=${report.id}" />">この日報を編集する</a></p>
                 </c:if>
             </c:when>
@@ -46,7 +51,6 @@
                 <h2>お探しのデータは見つかりませんでした。</h2>
             </c:otherwise>
         </c:choose>
-
         <p><a href="<c:url value="/reports/index" />">一覧に戻る</a></p>
     </c:param>
 </c:import>
